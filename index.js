@@ -154,7 +154,7 @@ sayilar.forEach(sayi => {
   if (tekrarSayisiObjesi[sayi]) {
     tekrarSayisiObjesi[sayi]++;
   } else {
-    tekrarSayisiObjesi[sayi] = 1;
+    tekrarSayisiObjesi[sayi] = 0;
   }
 });
 
