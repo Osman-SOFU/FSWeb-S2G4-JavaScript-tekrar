@@ -39,7 +39,7 @@ const sayilar = [
 function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
 }
-
+console.log(KareninAlani(5))
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 /* GÖREV 1:  
@@ -50,8 +50,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yarıçap) {
+return 2 * pi * yarıçap
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +64,8 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap) {
+return pi * Math.pow(yaricap,2)
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -98,27 +98,72 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+
+for (let i = 1; i < sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
+console.log(enbuyuk, enkucuk);
+
+
 
 /* kodlar buraya */
 
 // 3b çözümü:
+ucetambolunenler = [];
+sayilar.forEach(sayi => {
+  if(sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+})
 
 /* kodlar buraya */
 
 // 3c çözümü:
+ucebolunenlerintoplami = 0;
+const toplam = ucetambolunenler.reduce((acc, current) => {
+  return acc + current;
+}, 0);
+  ucebolunenlerintoplami += toplam
 
 /* kodlar buraya */
 
 // 3d çözümü
 
+const kucuk = sayilar.filter(sayi => sayi < 500)
+besyuzdenkucuksayilar = kucuk
+
 /* kodlar buraya */
 
 // 3e çözümü
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b);
+
 
 /* kodlar buraya */
 
 // 3f çözümü
+const tekrarSayisiObjesi = {};
+tekraredensayilar = [];
+sayilar.forEach(sayi => {
+  if (tekrarSayisiObjesi[sayi]) {
+    tekrarSayisiObjesi[sayi]++;
+  } else {
+    tekrarSayisiObjesi[sayi] = 1;
+  }
+});
 
+for (let sayi in tekrarSayisiObjesi) {
+  if (tekrarSayisiObjesi[sayi] > 1) {
+    const sonucString = `${sayi} sayısı ${tekrarSayisiObjesi[sayi]} kere tekrar edilmiştir`;
+    tekraredensayilar.push(sonucString);
+  }
+}
 /* kodlar buraya */
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
